@@ -1,0 +1,166 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  font-family: system-ui;
+  background: -webkit-gradient(linear, left top, left bottom, from(white), to(white));
+  background: linear-gradient(to bottom, white, white);
+  color: black;
+  height: 100vh;
+  margin: 0;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+}
+
+#main_container {
+  text-align: center;
+  margin-bottom: 50vh;
+}
+
+#main_container h1 {
+  font-size: 70px;
+  font-weight: bold;
+}
+
+#main_container input[type="text"] {
+  border: solid lightgrey;
+  padding: 6px 0px 6px 0px;
+  width: 600px;
+  -webkit-box-shadow: 0 1px 5px transparent;
+          box-shadow: 0 1px 5px transparent;
+  background-image: url("image/loupe_icon.png");
+  background-size: 20px;
+  background-position: 2%;
+  background-repeat: no-repeat;
+  padding-left: 40px;
+}
+
+#main_container input[type="text"]:hover {
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+  -webkit-transition-property: -webkit-box-shadow;
+  transition-property: -webkit-box-shadow;
+  transition-property: box-shadow;
+  transition-property: box-shadow, -webkit-box-shadow;
+  -webkit-box-shadow: 0 1px 5px #b4b3b3;
+          box-shadow: 0 1px 5px #b4b3b3;
+  border: solid transparent;
+}
+
+#main_container input:focus {
+  outline: none;
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+  -webkit-transition-property: -webkit-box-shadow;
+  transition-property: -webkit-box-shadow;
+  transition-property: box-shadow;
+  transition-property: box-shadow, -webkit-box-shadow;
+  -webkit-box-shadow: 0 1px 5px #b4b3b3;
+          box-shadow: 0 1px 5px #b4b3b3;
+  border: solid transparent;
+}
+
+#main_container input[type="submit"] {
+  background-color: #f8f9fa;
+  border-radius: 5px;
+  border: 1px solid #f7f7f7;
+  font-size: small;
+  -webkit-box-shadow: 0.1px 0.75px 2.6px transparent;
+          box-shadow: 0.1px 0.75px 2.6px transparent;
+  margin: 10px 5px 0px 5px;
+  padding: 6px 20px 6px 20px;
+}
+
+#main_container input[type="submit"]:hover {
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+  -webkit-transition-property: -webkit-box-shadow;
+  transition-property: -webkit-box-shadow;
+  transition-property: box-shadow;
+  transition-property: box-shadow, -webkit-box-shadow;
+  border: 1px solid #d8d7d7;
+  -webkit-box-shadow: 0.1px 0.75px 2.6px #b4b3b3;
+          box-shadow: 0.1px 0.75px 2.6px #b4b3b3;
+}
+
+form {
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#wrapper {
+  position: relative;
+  display: -ms-grid;
+  display: grid;
+  margin: 25px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  max-width: 600px;
+}
+
+#search_input {
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  z-index: 2;
+}
+
+#selection {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  top: 50%;
+  /* position the top  edge of the element at the middle of the parent */
+  left: 50%;
+  /* position the left edge of the element at the middle of the parent */
+  -webkit-transform: translate(-50%);
+          transform: translate(-50%);
+  -webkit-box-shadow: 0px 1px 4px #c9d3df;
+          box-shadow: 0px 1px 4px #c9d3df;
+  text-align: left;
+  padding-top: 20px;
+  border: 1px solid #adb9c9;
+  border-radius: 5px 0px 5px 5px;
+}
+
+#selection ul {
+  margin: 0;
+  padding: 10px 0 0 20px;
+  width: 100%;
+}
+
+#selection li {
+  cursor: pointer;
+  list-style-type: none;
+  height: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#selection li span {
+  font-weight: bold;
+}
+
+#selection li:hover {
+  background-color: lightsteelblue;
+}
+/*# sourceMappingURL=style_test.css.map */

@@ -1,0 +1,128 @@
+body {
+  font-family: system-ui;
+  background: -webkit-gradient(linear, left top, left bottom, from(white), to(white));
+  background: linear-gradient(to bottom, white, white);
+  color: black;
+  height: 100vh;
+  margin: 0;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+}
+
+#main_container {
+  text-align: center;
+  margin-bottom: 30vh;
+}
+
+#main_container div {
+  padding: 5px;
+}
+
+#main_container h1 {
+  font-size: 70px;
+  font-weight: bold;
+}
+
+#main_container input[type="text"] {
+  border: solid lightgrey;
+  padding: 6px 0px 6px 0px;
+  width: 600px;
+  -webkit-box-shadow: 0 1px 5px transparent;
+          box-shadow: 0 1px 5px transparent;
+  background-image: url("image/loupe_icon.png");
+  background-size: 20px;
+  background-position: 2%;
+  background-repeat: no-repeat;
+  padding-left: 40px;
+}
+
+#main_container input[type="text"]:hover {
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+  -webkit-transition-property: -webkit-box-shadow;
+  transition-property: -webkit-box-shadow;
+  transition-property: box-shadow;
+  transition-property: box-shadow, -webkit-box-shadow;
+  -webkit-box-shadow: 0 1px 5px #b4b3b3;
+          box-shadow: 0 1px 5px #b4b3b3;
+  border: solid transparent;
+}
+
+#main_container input:focus {
+  outline: none;
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+  -webkit-transition-property: -webkit-box-shadow;
+  transition-property: -webkit-box-shadow;
+  transition-property: box-shadow;
+  transition-property: box-shadow, -webkit-box-shadow;
+  -webkit-box-shadow: 0 1px 5px #b4b3b3;
+          box-shadow: 0 1px 5px #b4b3b3;
+  border: solid transparent;
+}
+
+#main_container input[type="submit"] {
+  background-color: #f8f9fa;
+  border-radius: 5px;
+  border: 1px solid #f7f7f7;
+  font-size: small;
+  -webkit-box-shadow: 0.1px 0.75px 2.6px transparent;
+          box-shadow: 0.1px 0.75px 2.6px transparent;
+  margin: 10px 5px 0px 5px;
+  padding: 6px 20px 6px 20px;
+}
+
+#main_container input[type="submit"]:hover {
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+  -webkit-transition-property: -webkit-box-shadow;
+  transition-property: -webkit-box-shadow;
+  transition-property: box-shadow;
+  transition-property: box-shadow, -webkit-box-shadow;
+  border: 1px solid #d8d7d7;
+  -webkit-box-shadow: 0.1px 0.75px 2.6px #b4b3b3;
+          box-shadow: 0.1px 0.75px 2.6px #b4b3b3;
+}
+
+/* Home */
+.dropdown {
+  position: absolute;
+  -webkit-box-shadow: 0px 1px 4px #c9d3df;
+          box-shadow: 0px 1px 4px #c9d3df;
+  z-index: 999;
+  width: 30%;
+  background-color: white;
+  border: 1px solid #adb9c9;
+  color: #1c1c1c;
+  border-radius: 0px 0px 5px 5px;
+}
+
+.dropdown li {
+  cursor: pointer;
+  list-style-type: none;
+  height: 50px;
+  padding: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.dropdown li span {
+  font-weight: bold;
+}
+
+.dropdown li:hover {
+  background-color: lightsteelblue;
+}
+
+.dropdown ul {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+/*# sourceMappingURL=style.css.map */

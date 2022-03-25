@@ -1,0 +1,17 @@
+div {
+    border: solid 0.1em;
+}
+
+body {
+    font-family: system-ui;
+    background: linear-gradient(to bottom,
+    darkorchid,
+      darken(darkorchid, 15%)
+    );
+    color: black;
+    height: 100vh;
+    margin: 0;
+    display: grid;
+    place-items: center;
+  }
+
