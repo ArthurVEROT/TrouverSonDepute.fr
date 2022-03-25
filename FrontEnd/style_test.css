@@ -129,17 +129,17 @@ form {
   /* position the left edge of the element at the middle of the parent */
   -webkit-transform: translate(-50%);
           transform: translate(-50%);
-  -webkit-box-shadow: 0px 1px 4px #c9d3df;
-          box-shadow: 0px 1px 4px #c9d3df;
   text-align: left;
   padding-top: 20px;
-  border: 1px solid #adb9c9;
+  -webkit-box-shadow: 0 1px 5px #b4b3b3;
+          box-shadow: 0 1px 5px #b4b3b3;
+  border: solid transparent;
   border-radius: 5px 0px 5px 5px;
 }
 
 #selection ul {
-  margin: 0;
-  padding: 10px 0 0 20px;
+  margin-left: 0px;
+  padding: 10px 20px 0 20px;
   width: 100%;
 }
 
@@ -161,6 +161,6 @@ form {
 }
 
 #selection li:hover {
-  background-color: lightsteelblue;
+  background-color: #ebf4ff;
 }
 /*# sourceMappingURL=style_test.css.map */

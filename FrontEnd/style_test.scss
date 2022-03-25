@@ -9,6 +9,7 @@
     font-family: 'Poppins', sans-serif;
   }
 
+  
 $brandColor: white;
 
 body {
@@ -94,7 +95,6 @@ form {
 
 #search_input {
     // background-color: grey;
-
     display: grid;
     justify-content: center;
     width: 100%;
@@ -112,19 +112,18 @@ form {
     top: 50%;  /* position the top  edge of the element at the middle of the parent */
     left: 50%; /* position the left edge of the element at the middle of the parent */
     transform: translate(-50%);
-
-    box-shadow: 0px 1px 4px rgb(201, 211, 223);
         
     text-align: left;
     padding-top: 20px;
 
-    border: 1px solid rgb(173, 185, 201);
+    box-shadow: 0 1px 5px rgb(180, 179, 179);
+    border: solid transparent;
     border-radius: 5px 0px 5px 5px;
     
 
     ul {
-        margin: 0;
-        padding: 10px 0 0 20px;
+        margin-left: 0px;
+        padding: 10px 20px 0 20px;
         width: 100%;
     }
 
@@ -141,7 +140,7 @@ form {
     }
     
     li:hover {
-        background-color: lightsteelblue;
+        background-color: rgb(235, 244, 255);
     }
     
 }
