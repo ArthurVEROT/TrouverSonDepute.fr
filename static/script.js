@@ -10,6 +10,7 @@ function displaySelection(response) {
     if (Object.keys(response.features).length > 0) {
         select.style.display = "block";
         var ul = document.createElement('ul');
+        select.removeChild(select.firstChild);
         select.appendChild(ul);
         response.features.forEach(function (element) {
             var li = document.createElement('li');
@@ -21,7 +22,7 @@ function displaySelection(response) {
             li.appendChild(infosAdresse);
             ul.appendChild(li);
         });
-        // select.removeChild(select.firstChild);
+        
     } else {
         select.style.display = "none";
     }
@@ -47,23 +48,4 @@ function selectAdresse(element) {
 function setQuery(value) {
     return requestURL + value + "?type=housenumber&autocomplete=1";
 } 
-
-
-// Validation Email
-// function ValidateEmail(inputText){
-//     var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-//     if(inputText.value.match(mailformat)){
-//         document.form1.text1.focus();
-//         return true;
-//     }
-//     else{
-//         alert("Vous avez inscrit une adresse email invalide!");
-//         document.form1.text1.focus();
-//         return false;
-//     }
-// };
-
-// 
-// JavaScript pour l'autcompletion
-// 
 

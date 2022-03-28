@@ -22,12 +22,11 @@ def api_gouv(address):
 
 
 def loc(lon, lat):
-# Create Point objects
-
+    # Create Point objects
     point = Point(lon, lat)
 
     # reading csv and making list of dict of circonscriptions
-    with open('/Users/arthur/Documents/MyCode/Agoras/website/static/circonscriptions.csv', mode='r') as inp:
+    with open('/Users/arthur/Documents/MyCode/TrouverVotreDéputé.fr/circonscriptions.csv', mode='r') as inp:
         reader = csv.reader(inp)
         # next(reader, None)
         circonscriptions = [{'name':row[0],'loc':(row[1])} for row in reader]

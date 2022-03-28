@@ -41,7 +41,7 @@ function autocompleteAdresse() {
     }
 };
 function selectAdresse(element) {
-    document.getElementById("address").value = element.properties.name + " " + element.properties.postcode + " " + element.properties.city;
+    document.getElementById("address").value = element.properties.housenumber + " " + element.properties.name + " " + element.properties.postcode + " " + element.properties.city;
     select.style.display = "none";
 }
 

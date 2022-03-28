@@ -17,7 +17,7 @@
                 <h1>🇫🇷🏛 Trouvez votre député!</h1>
             </div>
             <br />
-            <form method="POST">
+            <form>
                 <div id="wrapper">
                     <div id="search_input">
                         <input
@@ -35,42 +35,19 @@
                     </div>
                 </div>
 
-                <div>
+                <!-- <div>
                     <input
                         class="bouton"
                         type="submit"
                         name="btnG"
                         value="Rechercher"
                     />
-                </div>
+                </div> -->
             </form>
 
-            {% if data is defined and data|length %}
-            <div id="depute">
-                <div>
-                    <!-- <img src="static/image/abad.jpeg" alt="Photo_depute"> -->
-                    <embed
-                        src= {{data[3]}}
-                        type="image/jpg"
-                    />
-                </div>
-                <div>
-                    <div>{{data[0]}}</div>
-                    <div>{{data[1]}}</div>
-                    <div>{{data[2]}}</div>
-                    <!-- <div>Député de la 5ème circonscription de l'Ain</div> -->
-                </div>
-                <div>
-                    <!-- <div>Les républicains</div> -->
-
-
-                </div>
+            <div>
+                <h5>Nous n'avons pas trouvé votre député</h5>
             </div>
-            {% else %}
-            <div id="deputeHidden">
-            </div>
-
-            {% endif %}
         </div>
     </body>
     <script type="text/javascript" src="static/script.js"></script>
