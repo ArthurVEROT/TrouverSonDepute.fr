@@ -1,51 +1,81 @@
-// 
+//
 // JavaScript pour l'autcompletion
-// 
-var requestURL = 'https://api-adresse.data.gouv.fr/search/?q=';
-var select = document.getElementById("selection");
-window.onload = function() {
-    document.getElementById("address").addEventListener("input", autocompleteAdresse, false);
-};
-function displaySelection(response) {
-    if (Object.keys(response.features).length > 0) {
-        select.style.display = "block";
-        var ul = document.createElement('ul');
-        select.removeChild(select.firstChild);
-        select.appendChild(ul);
-        response.features.forEach(function (element) {
-            var li = document.createElement('li');
-            var ligneAdresse = document.createElement('span');
-            var infosAdresse = document.createTextNode(element.properties.postcode + ' ' + element.properties.city);
-            ligneAdresse.innerHTML = element.properties.name;
-            li.onclick = function () { selectAdresse(element); };
-            li.appendChild(ligneAdresse);
-            li.appendChild(infosAdresse);
-            ul.appendChild(li);
-        });
-        
-    } else {
-        select.style.display = "none";
-    }
-}
-function autocompleteAdresse() {
-    var inputValue = document.getElementById("address").value;
+//
+
+const requestURL = "https://api-adresse.data.gouv.fr/search/?q=";
+
+const inputAddress = document.querySelector("#inputAddress")
+const divAddresses = document.querySelector("#divAddresses");
+const outputAddresses = document.querySelector("#outputAddresses")
+const searchButton = document.querySelector("#searchButton")
+    
+document.addEventListener('DOMContentLoaded', function() {
+    inputAddress.onkeyup = findAddress;
+});
+
+function findAddress() {
+    let inputValue = inputAddress.value;
+
     if (inputValue) {
-        fetch(setQuery(inputValue))
-            .then(function (response) {
-                response.json().then(function (data) {
-                    displaySelection(data);
-                });
-            });
+        requestAPI = (requestURL + inputValue + "?type=label&autocomplete=1")
+        console.log(requestAPI);
+        fetch(requestAPI)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            displayAddresses(data);
+        })
     } else {
-        select.style.display = "none";
+        divAddresses.style.display = "none";
     }
-};
-function selectAdresse(element) {
-    document.getElementById("address").value = element.properties.name + " " + element.properties.postcode + " " + element.properties.city;
-    select.style.display = "none";
 }
 
-function setQuery(value) {
-    return requestURL + value + "?type=housenumber&autocomplete=1";
-} 
+function displayAddresses(response) {
+    if (Object.keys(response.features).length > 0) {
+        divAddresses.style.display = "block";
 
+        response.features.forEach(function (element) {
+            var li = document.createElement("li");
+            var addressLine = document.createElement("span");
+            var cityLine = document.createTextNode(
+                element.properties.postcode + " " + element.properties.city
+            );
+            addressLine.innerHTML = element.properties.name;
+            li.onclick = function () {
+                inputAddress.value =
+                element.properties.name +
+                " " +
+                element.properties.postcode +
+                " " +
+                element.properties.city;
+            
+                searchButton.click();
+                divAddresses.style.display = "none";
+            };
+
+            li.appendChild(addressLine);
+            li.appendChild(cityLine);
+            outputAddresses.appendChild(li);
+            if ((outputAddresses.childElementCount) > 4) {
+            outputAddresses.removeChild(outputAddresses.firstChild);
+            }
+            
+        });
+
+    } else {
+        divAddresses.style.display = "none";
+    };
+}
+
+inputAddress.addEventListener("focusin", function () {
+    if (inputAddress.value.length > 0) {
+        divAddresses.style.display = "block";
+    }
+});
+
+inputAddress.addEventListener("focusout", function () {
+    setTimeout(function () {
+        divAddresses.style.display = "none"; 
+    }
+    , 30)
+});

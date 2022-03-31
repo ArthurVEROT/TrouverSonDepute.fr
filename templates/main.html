@@ -22,22 +22,26 @@
                     <div id="search_input">
                         <input
                             class="rounded-pill"
-                            id="address"
+                            id="inputAddress"
                             type="text"
-                            name="address"
+                            name="inputAddress"
                             placeholder="Indiquer votre adresse.."
                             autocomplete="off"
                             onfocus="this.placeholder=''"
                             onblur="this.placeholder='Indiquer votre adresse..'"
                         />
                     </div>
-                    <div id="selection">
+                    <div id="divAddresses">
+                        <ul id="outputAddresses">
+
+                        </ul>
                     </div>
                 </div>
 
                 <div>
                     <input
-                        class="bouton"
+                        class="caché"
+                        id="searchButton"
                         type="submit"
                         name="btnG"
                         value="Rechercher"
@@ -55,19 +59,31 @@
                     />
                 </div>
                 <div>
-                    <div>{{data[0]}}</div>
-                    <div>{{data[1]}}</div>
-                    <div>{{data[2]}}</div>
-                    <!-- <div>Député de la 5ème circonscription de l'Ain</div> -->
+                    <div>{{data[1]}} {{data[0]}}</div>
+                    <div>{{data[5]}}</div>
+                    <div>Email: {{data[2]}}</div>
                 </div>
                 <div>
-                    <!-- <div>Les républicains</div> -->
-
-
+                    <div>Département: {{data[4]}}</div>
+                    <div>Circonscription n°{{data[6]}}</div>
                 </div>
             </div>
             {% else %}
-            <div id="deputeHidden">
+            <div class="caché">
+                <div>
+                    <embed
+                        src= https://www.nosdeputes.fr/depute/photo/pascal-brindeau
+                        type="image/jpg"
+                    />
+                </div>
+                <div>
+                    <div>Hide</div>
+                    <div>Hide</div>
+                    <div>Hide</div>
+                </div>
+                <div>
+                    <!-- hide -->
+                </div>
             </div>
 
             {% endif %}
