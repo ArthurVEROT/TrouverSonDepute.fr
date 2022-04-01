@@ -36,9 +36,8 @@ def home():
         if slug_depute:
             mon_url = "https://www.nosdeputes.fr/depute/photo/" + slug_depute[0][0]
             if '|' in emails_depute[0][0]:
-                emailsDepute = emails_depute[0][0].split("|")
-                data = [nom_depute[0][0], prenom_depute[0][0], emailsDepute[0], mon_url, nom_circo[0][0], parti[0][0], num_circo[0][0]]
-                print(data)
+                emailDepute = emails_depute[0][0].split("|")
+                data = [nom_depute[0][0], prenom_depute[0][0], emailDepute[0], mon_url, nom_circo[0][0], parti[0][0], num_circo[0][0]]
                 return render_template("main.html", data=data)
             data = [nom_depute[0][0], prenom_depute[0][0], emails_depute[0][0], mon_url, nom_circo[0][0], parti[0][0], num_circo[0][0]]
             return render_template("main.html", data=data)

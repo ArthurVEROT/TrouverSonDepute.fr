@@ -9,6 +9,18 @@ const divAddresses = document.querySelector("#divAddresses");
 const outputAddresses = document.querySelector("#outputAddresses")
 const searchButton = document.querySelector("#searchButton")
     
+
+document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('keypress', function (e) {
+            if (e.keyCode === 13 || e.which === 13) {
+                e.preventDefault();
+                return false;
+            }
+            
+        });
+});
+
+
 document.addEventListener('DOMContentLoaded', function() {
     inputAddress.onkeyup = findAddress;
 });
@@ -17,7 +29,7 @@ function findAddress() {
     let inputValue = inputAddress.value;
 
     if (inputValue) {
-        requestAPI = (requestURL + inputValue + "?type=label&autocomplete=1")
+        requestAPI = (requestURL + inputValue + "?type=lable&autocomplete=1")
         console.log(requestAPI);
         fetch(requestAPI)
         .then(response => response.json())
@@ -73,9 +85,9 @@ inputAddress.addEventListener("focusin", function () {
     }
 });
 
-inputAddress.addEventListener("focusout", function () {
-    setTimeout(function () {
-        divAddresses.style.display = "none"; 
-    }
-    , 30)
-});
+// inputAddress.addEventListener("focusout", function () {
+//     setTimeout(function () {
+//         divAddresses.style.display = "none"; 
+//     }
+//     , 100)
+// });
