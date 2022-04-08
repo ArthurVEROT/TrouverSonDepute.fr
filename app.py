@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
-from helpers import api_gouv, loc
+from helpers import localisation, circonscription
 
 # Configure application
 app = Flask(__name__)
@@ -21,8 +21,8 @@ def home():
 
         # Get the circonscription
         address = request.form.get('inputAddress')
-        gps = api_gouv(address)
-        circo = loc(gps['coordinates'][0], gps['coordinates'][1])
+        gps = localisation(address)
+        circo = circonscription(gps['coordinates'][0], gps['coordinates'][1])
 
         # Get info about the député
         nom_depute = db.engine.execute('SELECT nom_de_famille FROM deputes WHERE circo = ?;', circo).fetchall()
@@ -32,14 +32,16 @@ def home():
         nom_circo = db.engine.execute('SELECT nom_circo FROM deputes WHERE circo = ?;', circo).fetchall()
         parti = db.engine.execute('SELECT parti_ratt_financier FROM deputes WHERE circo = ?;', circo).fetchall()
         num_circo = db.engine.execute('SELECT num_circo FROM deputes WHERE circo = ?;', circo).fetchall()
+        profession = db.engine.execute('SELECT profession FROM deputes WHERE circo = ?;', circo).fetchall()
+        url_an = db.engine.execute('SELECT url_an FROM deputes WHERE circo = ?;', circo).fetchall()
 
         if slug_depute:
             mon_url = "https://www.nosdeputes.fr/depute/photo/" + slug_depute[0][0]
             if '|' in emails_depute[0][0]:
                 emailDepute = emails_depute[0][0].split("|")
-                data = [nom_depute[0][0], prenom_depute[0][0], emailDepute[0], mon_url, nom_circo[0][0], parti[0][0], num_circo[0][0]]
+                data = [nom_depute[0][0], prenom_depute[0][0], emailDepute[0], mon_url, nom_circo[0][0], parti[0][0], num_circo[0][0], profession[0][0], url_an[0][0], emailDepute[1]]
                 return render_template("main.html", data=data)
-            data = [nom_depute[0][0], prenom_depute[0][0], emails_depute[0][0], mon_url, nom_circo[0][0], parti[0][0], num_circo[0][0]]
+            data = [nom_depute[0][0], prenom_depute[0][0], emails_depute[0][0], mon_url, nom_circo[0][0], parti[0][0], num_circo[0][0], profession[0][0], url_an[0][0]]
             return render_template("main.html", data=data)
         
             

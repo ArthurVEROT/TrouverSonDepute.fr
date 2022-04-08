@@ -152,17 +152,41 @@ form {
 #depute {
     // border: solid 0.1em black;
     display: grid;
-    grid-template-columns: 200px 1fr 1fr;
-    grid-template-rows: auto;
+    justify-content: center;
+    grid-template-columns: repeat(3, 200px);
+    grid-auto-rows: 60px 150px;
+    gap: 10px;
+    grid-template-areas: 
+    "photo nom circo"
+    "photo email email";
     
     text-align: left;
     z-index: 1;
-    border: solid 0.1em black;
+    // border: solid 0.1em black;
     width: 600px;
 
-    div {
-        // border: solid 0.1em blue;
-        padding: 5px;
+    #photo {
+        grid-area: photo;
+        // border: 0.1em solid black;
+    }
+    #nom {
+        grid-area: nom;
+        div {
+            padding-bottom: 5px;
+        }
+    }
+    #circo {
+        grid-area: circo;
+        padding-left: 20px;
+        div {
+            padding-bottom: 5px;
+        }
+    }
+    #email {
+        grid-area: email;
+        div {
+            padding-bottom: 5px;
+        }
     }
 
     img {
@@ -175,13 +199,43 @@ form {
 .caché {
     visibility: hidden;
 
-    // border: solid 0.1em black;
     display: grid;
-    grid-template-columns: 200px 1fr 1fr;
-    grid-template-rows: auto;
+    justify-content: center;
+    grid-template-columns: repeat(3, 200px);
+    grid-auto-rows: 60px 150px;
+    gap: 10px;
+    grid-template-areas: 
+    "photo nom circo"
+    "photo email email";
     
     text-align: left;
     z-index: 1;
+    // border: solid 0.1em black;
+    width: 600px;
+
+    #photo {
+        grid-area: photo;
+        // border: 0.1em solid black;
+    }
+    #nom {
+        grid-area: nom;
+        div {
+            padding-bottom: 5px;
+        }
+    }
+    #circo {
+        grid-area: circo;
+        padding-left: 20px;
+        div {
+            padding-bottom: 5px;
+        }
+    }
+    #email {
+        grid-area: email;
+        div {
+            padding-bottom: 5px;
+        }
+    }
 
     img {
         border: solid 0.1em grey;

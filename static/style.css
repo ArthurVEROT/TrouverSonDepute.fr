@@ -172,18 +172,56 @@ form {
 #depute {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 200px 1fr 1fr;
-      grid-template-columns: 200px 1fr 1fr;
-  -ms-grid-rows: auto;
-      grid-template-rows: auto;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-grid-columns: (200px)[3];
+      grid-template-columns: repeat(3, 200px);
+  grid-auto-rows: 60px 150px;
+  gap: 10px;
+      grid-template-areas: "photo nom circo" "photo email email";
   text-align: left;
   z-index: 1;
-  border: solid 0.1em black;
-  width: min(600px, 80vw);
+  width: 600px;
 }
 
-#depute div {
-  padding: 5px;
+#depute #photo {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 1;
+  grid-area: photo;
+}
+
+#depute #nom {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: nom;
+}
+
+#depute #nom div {
+  padding-bottom: 5px;
+}
+
+#depute #circo {
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+  grid-area: circo;
+  padding-left: 20px;
+}
+
+#depute #circo div {
+  padding-bottom: 5px;
+}
+
+#depute #email {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-area: email;
+}
+
+#depute #email div {
+  padding-bottom: 5px;
 }
 
 #depute img {
@@ -197,12 +235,56 @@ form {
   visibility: hidden;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 200px 1fr 1fr;
-      grid-template-columns: 200px 1fr 1fr;
-  -ms-grid-rows: auto;
-      grid-template-rows: auto;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-grid-columns: (200px)[3];
+      grid-template-columns: repeat(3, 200px);
+  grid-auto-rows: 60px 150px;
+  gap: 10px;
+      grid-template-areas: "photo nom circo" "photo email email";
   text-align: left;
   z-index: 1;
+  width: 600px;
+}
+
+.caché #photo {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 1;
+  grid-area: photo;
+}
+
+.caché #nom {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: nom;
+}
+
+.caché #nom div {
+  padding-bottom: 5px;
+}
+
+.caché #circo {
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+  grid-area: circo;
+  padding-left: 20px;
+}
+
+.caché #circo div {
+  padding-bottom: 5px;
+}
+
+.caché #email {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-area: email;
+}
+
+.caché #email div {
+  padding-bottom: 5px;
 }
 
 .caché img {

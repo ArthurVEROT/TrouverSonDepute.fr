@@ -16,6 +16,9 @@
             <div>
                 <h1>🇫🇷🏛 Trouvez votre député!</h1>
             </div>
+            <div>
+                <h5>en indiquant simplement votre adresse postale</h5>
+            </div>
             <br />
             <form method="POST">
                 <div id="wrapper">
@@ -25,10 +28,8 @@
                             id="inputAddress"
                             type="text"
                             name="inputAddress"
-                            placeholder="Indiquer votre adresse.."
+                            placeholder="Indiquer votre adresse postale.."
                             autocomplete="off"
-                            onfocus="this.placeholder=''"
-                            onblur="this.placeholder='Indiquer votre adresse..'"
                         />
                     </div>
                     <div id="divAddresses">
@@ -51,41 +52,55 @@
 
             {% if data is defined and data|length %}
             <div id="depute">
-                <div>
-                    <!-- <img src="static/image/abad.jpeg" alt="Photo_depute"> -->
+                <div id="photo">
                     <embed
                         src= {{data[3]}}
                         type="image/jpg"
                     />
                 </div>
-                <div>
+                <div id="nom">
                     <div>{{data[1]}} {{data[0]}}</div>
                     <div>{{data[5]}}</div>
-                    <div>Email: {{data[2]}}</div>
                 </div>
-                <div>
+                <div id="circo">
                     <div>Département: {{data[4]}}</div>
                     <div>Circonscription n°{{data[6]}}</div>
+                </div>
+                <div id="email">
+                    {% if data|length == 9 %}
+                    <div>Email: <a href="mailto:'{{data[2]}}'">{{data[2]}}</a></div>
+                    {% else %}
+                    <div>Email 1: <a href="mailto:'{{data[2]}}'">{{data[2]}}</a></div>
+                    <div>Email 2: <a href="mailto:'{{data[9]}}'">{{data[9]}}</a></div>
+                    {% endif %}
+                    <div>Profession: {{data[7]}}</div>
+                    <div><a href="{{data[8]}}" target="_blank">Ficher Assemblée Nationale</a></div>
+                    
                 </div>
             </div>
             {% else %}
             <div class="caché">
-                <div>
+                <div id="photo">
                     <embed
                         src= https://www.nosdeputes.fr/depute/photo/pascal-brindeau
                         type="image/jpg"
                     />
                 </div>
-                <div>
-                    <div>Hide</div>
-                    <div>Hide</div>
-                    <div>Hide</div>
+                <div id="nom">
+                    <div>Hidden</div>
+                    <div>Hidden</div>
                 </div>
-                <div>
-                    <!-- hide -->
+                <div id="circo">
+                    <div>Hidden</div>
+                    <div>Hidden</div>
+                </div>
+                <div id="email">
+                    <div>Hidden</a></div>
+                    <div>Hidden</a></div>
+                    <div>Hidden</div>
+                    <div>Hidden</div>
                 </div>
             </div>
-
             {% endif %}
         </div>
     </body>

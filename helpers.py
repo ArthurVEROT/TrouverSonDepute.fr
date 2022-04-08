@@ -4,7 +4,7 @@ from shapely.geometry import Point, Polygon
 import csv
 
 
-def api_gouv(address):
+def localisation(address):
     try:
         address_encoded = urllib.parse.urlencode({'q': address})
         response = requests.get('https://api-adresse.data.gouv.fr/search/?q='+address_encoded)
@@ -21,15 +21,13 @@ def api_gouv(address):
         return None
 
 
-def loc(lon, lat):
+def circonscription(lon, lat):
     # Create Point objects
     point = Point(lon, lat)
 
     # reading csv and making list of dict of circonscriptions
     with open('circonscriptions.csv', mode='r') as inp:
-        
         reader = csv.reader(inp)
-        # next(reader, None)
         circonscriptions = [{'name':row[0],'loc':(row[1])} for row in reader]
 
     # Split string into a list
@@ -41,6 +39,7 @@ def loc(lon, lat):
         it = iter(circonscription['loc'])
         circonscription['loc'] = list(zip(it,it))
 
+    # Look for the circonscription that contains our point
     longeur=len(circonscriptions)
     for x in range(0, longeur):
         if point.within(Polygon(circonscriptions[x]['loc'])):

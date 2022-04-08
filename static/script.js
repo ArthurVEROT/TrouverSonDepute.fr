@@ -9,7 +9,7 @@ const divAddresses = document.querySelector("#divAddresses");
 const outputAddresses = document.querySelector("#outputAddresses")
 const searchButton = document.querySelector("#searchButton")
     
-
+// Disable key enter to look for an address
 document.addEventListener('DOMContentLoaded', function() {
     document.addEventListener('keypress', function (e) {
             if (e.keyCode === 13 || e.which === 13) {
@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
     inputAddress.onkeyup = findAddress;
 });
 
+// Function to look for the address
 function findAddress() {
     let inputValue = inputAddress.value;
 
@@ -42,6 +43,7 @@ function findAddress() {
     }
 }
 
+// Function to display the address in the search bar and look for the député related to this address
 function displayAddresses(response) {
     if (Object.keys(response.features).length > 0) {
         divAddresses.style.display = "block";
@@ -79,6 +81,7 @@ function displayAddresses(response) {
     };
 }
 
+// When focus is in the input field, display the selection
 inputAddress.addEventListener("focusin", function () {
     if (inputAddress.value.length > 0) {
         divAddresses.style.display = "block";
