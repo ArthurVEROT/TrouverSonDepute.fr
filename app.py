@@ -46,7 +46,9 @@ def home():
         
             
         else:
-            return render_template("mainNotFound.html")
+            message = "Nous n'avons pas trouvé votre député"
+            data = [message]
+            return render_template("main.html", data=data)
     
     return render_template('main.html')
 

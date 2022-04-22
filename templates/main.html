@@ -50,34 +50,40 @@
                 </div>
             </form>
 
-            {% if data is defined and data|length %}
-            <div id="depute">
-                <div id="photo">
-                    <embed
-                        src= {{data[3]}}
-                        type="image/jpg"
-                    />
+            {% if data is defined%}
+                {% if data|length > 1 %}
+                <div id="depute">
+                    <div id="photo">
+                        <embed
+                            src= {{data[3]}}
+                            type="image/jpg"
+                        />
+                    </div>
+                    <div id="nom">
+                        <div>{{data[1]}} {{data[0]}}</div>
+                        <div>{{data[5]}}</div>
+                    </div>
+                    <div id="circo">
+                        <div>Département: {{data[4]}}</div>
+                        <div>Circonscription n°{{data[6]}}</div>
+                    </div>
+                    <div id="email">
+                        {% if data|length == 9 %}
+                        <div>Email: <a href="mailto:'{{data[2]}}'">{{data[2]}}</a></div>
+                        {% else %}
+                        <div>Email 1: <a href="mailto:'{{data[2]}}'">{{data[2]}}</a></div>
+                        <div>Email 2: <a href="mailto:'{{data[9]}}'">{{data[9]}}</a></div>
+                        {% endif %}
+                        <div>Profession: {{data[7]}}</div>
+                        <div><a href="{{data[8]}}" target="_blank">Page de l'Assemblée Nationale</a></div>
+                        
+                    </div>
                 </div>
-                <div id="nom">
-                    <div>{{data[1]}} {{data[0]}}</div>
-                    <div>{{data[5]}}</div>
-                </div>
-                <div id="circo">
-                    <div>Département: {{data[4]}}</div>
-                    <div>Circonscription n°{{data[6]}}</div>
-                </div>
-                <div id="email">
-                    {% if data|length == 9 %}
-                    <div>Email: <a href="mailto:'{{data[2]}}'">{{data[2]}}</a></div>
-                    {% else %}
-                    <div>Email 1: <a href="mailto:'{{data[2]}}'">{{data[2]}}</a></div>
-                    <div>Email 2: <a href="mailto:'{{data[9]}}'">{{data[9]}}</a></div>
-                    {% endif %}
-                    <div>Profession: {{data[7]}}</div>
-                    <div><a href="{{data[8]}}" target="_blank">Ficher Assemblée Nationale</a></div>
-                    
-                </div>
-            </div>
+                {% elif data|length == 1 %}
+                    <div>
+                        <h5>{{data[0]}}</h5>
+                    </div>
+                {% endif %}
             {% else %}
             <div class="caché">
                 <div id="photo">
