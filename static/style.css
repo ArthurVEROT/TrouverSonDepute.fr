@@ -19,9 +19,31 @@ body {
   place-items: center;
 }
 
+header { 
+  min-height: 50px; 
+  width: 100%;
+  background-color: blue;
+}
+footer{ min-height:50px; background:PapayaWhip; }
+
+/* Trick */
+body{ 
+  display:flex; 
+  flex-direction:column; 
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+
+footer{
+  margin-top: auto; 
+}
+
 #main_container {
   display: -ms-grid;
-  display: grid;
+  position: absolute;  
+  border: 1px solid black;
+
   justify-items: center;
   text-align: center;
   margin-bottom: 20vh;
@@ -172,6 +194,9 @@ form {
 #depute {
   display: -ms-grid;
   display: grid;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+  padding: 50px 50px;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -182,7 +207,7 @@ form {
       grid-template-areas: "photo nom circo" "photo email email";
   text-align: left;
   z-index: 1;
-  width: 600px;
+  width: auto;
 }
 
 #depute #photo {
@@ -294,3 +319,10 @@ form {
           box-shadow: 0 1px 5px #b4b3b3;
 }
 /*# sourceMappingURL=style.css.map */
+
+footer {
+  bottom: 0;
+  height: 50px;
+  width: 100%;
+  background-color: blue;
+}
