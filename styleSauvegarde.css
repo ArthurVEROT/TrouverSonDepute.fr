@@ -1,0 +1,318 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  font-family: system-ui;
+  color: rgb(34, 33, 33);
+  height: 100vh;
+  margin: 0;
+}
+
+header { 
+  min-height: 50px; 
+  width: 100%;
+  background-color: blue;
+}
+
+footer { 
+  min-height: 50px; 
+  width: 100%;
+  background-color: blue;
+}
+
+/* Trick */
+body{ 
+  display:flex; 
+  flex-direction:column; 
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+
+footer{
+  margin-top: auto; 
+}
+
+
+#main_container {
+  position: absolute;  
+  border: 1px solid black;
+
+  justify-items: center;
+  text-align: center;
+}
+
+#main_container h1 {
+  font-size: 70px;
+  font-weight: bold;
+}
+
+#main_container input[type="text"] {
+  border: solid lightgrey;
+  padding: 6px 0px 6px 0px;
+  width: min(600px, 80vw);
+  -webkit-box-shadow: 0 1px 5px transparent;
+          box-shadow: 0 1px 5px transparent;
+  background-image: url("image/loupe_icon.png");
+  background-size: 20px;
+  background-position: 2%;
+  background-repeat: no-repeat;
+  padding-left: 40px;
+}
+
+#main_container input[type="text"]:hover {
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+  -webkit-transition-property: -webkit-box-shadow;
+  transition-property: -webkit-box-shadow;
+  transition-property: box-shadow;
+  transition-property: box-shadow, -webkit-box-shadow;
+  -webkit-box-shadow: 0 1px 5px #b4b3b3;
+          box-shadow: 0 1px 5px #b4b3b3;
+  border: solid transparent;
+}
+
+#main_container input:focus {
+  outline: none;
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+  -webkit-transition-property: -webkit-box-shadow;
+  transition-property: -webkit-box-shadow;
+  transition-property: box-shadow;
+  transition-property: box-shadow, -webkit-box-shadow;
+  -webkit-box-shadow: 0 1px 5px #b4b3b3;
+          box-shadow: 0 1px 5px #b4b3b3;
+  border: solid transparent;
+}
+
+#main_container input[type="submit"] {
+  background-color: #f8f9fa;
+  border-radius: 5px;
+  border: 1px solid #f7f7f7;
+  font-size: small;
+  -webkit-box-shadow: 0.1px 0.75px 2.6px transparent;
+          box-shadow: 0.1px 0.75px 2.6px transparent;
+  margin: 10px 5px 0px 5px;
+  padding: 6px 20px 6px 20px;
+}
+
+#main_container input[type="submit"]:hover {
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+  -webkit-transition-property: -webkit-box-shadow;
+  transition-property: -webkit-box-shadow;
+  transition-property: box-shadow;
+  transition-property: box-shadow, -webkit-box-shadow;
+  border: 1px solid #d8d7d7;
+  -webkit-box-shadow: 0.1px 0.75px 2.6px #b4b3b3;
+          box-shadow: 0.1px 0.75px 2.6px #b4b3b3;
+}
+
+form {
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#wrapper {
+  position: relative;
+  display: -ms-grid;
+  display: grid;
+  margin: 25px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  max-width: 600px;
+}
+
+#search_input {
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  z-index: 3;
+}
+
+#divAddresses {
+  display: none;
+  position: absolute;
+  z-index: 2;
+  background-color: white;
+  width: 100%;
+  top: 50%;
+  /* position the top  edge of the element at the middle of the parent */
+  left: 50%;
+  /* position the left edge of the element at the middle of the parent */
+  -webkit-transform: translate(-50%);
+          transform: translate(-50%);
+  text-align: left;
+  padding-top: 20px;
+  -webkit-box-shadow: 0 1px 5px #b4b3b3;
+          box-shadow: 0 1px 5px #b4b3b3;
+  border: solid transparent;
+  border-radius: 5px 0px 5px 5px;
+}
+
+#divAddresses #outputAddresses {
+  margin-left: 0px;
+  padding: 10px 20px 0 20px;
+  width: 100%;
+}
+
+#divAddresses li {
+  cursor: pointer;
+  list-style-type: none;
+  height: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#divAddresses li span {
+  font-weight: bold;
+}
+
+#divAddresses li:hover {
+  background-color: #ebf4ff;
+}
+
+#depute {
+  display: -ms-grid;
+  display: grid;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+  padding: 50px 50px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-grid-columns: (200px)[3];
+      grid-template-columns: repeat(3, 200px);
+  grid-auto-rows: 60px 150px;
+  gap: 10px;
+      grid-template-areas: "photo nom circo" "photo email email";
+  text-align: left;
+  z-index: 1;
+  width: auto;
+}
+
+#depute #photo {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 1;
+  grid-area: photo;
+}
+
+#depute #nom {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: nom;
+}
+
+#depute #nom div {
+  padding-bottom: 5px;
+}
+
+#depute #circo {
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+  grid-area: circo;
+  padding-left: 20px;
+}
+
+#depute #circo div {
+  padding-bottom: 5px;
+}
+
+#depute #email {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-area: email;
+}
+
+#depute #email div {
+  padding-bottom: 5px;
+}
+
+#depute img {
+  border: solid 0.1em grey;
+  width: 150px;
+  -webkit-box-shadow: 0 1px 5px #b4b3b3;
+          box-shadow: 0 1px 5px #b4b3b3;
+}
+
+.caché {
+  visibility: hidden;
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-grid-columns: (200px)[3];
+      grid-template-columns: repeat(3, 200px);
+  grid-auto-rows: 60px 150px;
+  gap: 10px;
+      grid-template-areas: "photo nom circo" "photo email email";
+  text-align: left;
+  z-index: 1;
+  width: 600px;
+}
+
+.caché #photo {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 1;
+  grid-area: photo;
+}
+
+.caché #nom {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: nom;
+}
+
+.caché #nom div {
+  padding-bottom: 5px;
+}
+
+.caché #circo {
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+  grid-area: circo;
+  padding-left: 20px;
+}
+
+.caché #circo div {
+  padding-bottom: 5px;
+}
+
+.caché #email {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-area: email;
+}
+
+.caché #email div {
+  padding-bottom: 5px;
+}
+
+.caché img {
+  border: solid 0.1em grey;
+  width: 150px;
+  -webkit-box-shadow: 0 1px 5px #b4b3b3;
+          box-shadow: 0 1px 5px #b4b3b3;
+}
+/*# sourceMappingURL=style.css.map */
