@@ -13,8 +13,10 @@
     <body>
 
         <header>
-            <h1 id="main-title">🇫🇷🏛 Trouvez votre député!</h1>
-            <h4>en indiquant simplement votre adresse postale</h4>
+            <h1 id="main-title">🏛 Trouvez votre député!</h1>
+            <h4>en indiquant simplement 
+            <br class="breakLess450px">    
+            votre adresse postale</h4>
 
         </header>
 
@@ -53,16 +55,17 @@
             {% if data is defined%}
                 {% if data|length > 1 %}
                 <div id="depute">
-                    <div id="photo">
+                    <div id="photo-nom">
                         <embed
                             src= {{data[3]}}
                             type="image/jpg"
                         />
+                        <div id="nom"><b>{{data[1]}} {{data[0]}}</b></div>
                     </div>
+                    
                     <div id="info">
                         <div id="nom-circo">
-                            <div id="nom">
-                                <div><b>{{data[1]}} {{data[0]}}</b></div>
+                            <div id="parti">
                                 <div>{{data[5]}}</div>
                             </div>
                             <div id="circo">
